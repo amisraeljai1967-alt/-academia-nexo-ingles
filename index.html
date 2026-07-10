@@ -581,7 +581,7 @@
     <p style="margin-top:5px; color:#6b7280;">Hecho para estudiantes mexicanos</p>
   </footer>
   <script>
-var preguntas = [
+  var preguntas = [
 {nivel:"Básico",pregunta:"¿Cuál es el pasado simple del verbo \"eat\"? / What is the simple past of the verb \"eat\"?",opciones:["eated","ate","eaten","eating"],correcta:1,explicacion:"La respuesta correcta es ate. Es la forma en pasado del verbo irregular eat."},
 {nivel:"Básico",pregunta:"¿Cuál es el participio pasado del verbo \"go\"? / What is the past participle of the verb \"go\"?",opciones:["went","goed","gone","going"],correcta:2,explicacion:"La respuesta correcta es gone. Es el participio pasado de go. Se usa con have/has."},
 {nivel:"Básico",pregunta:"Elige la forma correcta en presente simple: 'He ___ (play) soccer.'",opciones:["play","plays","playing","played"],correcta:1,explicacion:"Con he, she, it los verbos en presente llevan -s. He plays soccer everyday."},
@@ -631,11 +631,7 @@ var preguntas = [
 {nivel:"Básico",pregunta:"¿Cuál es el participio pasado de 'hide'?",opciones:["hided","hid","hidden","hiding"],correcta:2,explicacion:"Participio de hide: hidden."},
 {nivel:"Básico",pregunta:"Elige la forma correcta: 'I ___ (be) at home all day.'",opciones:["was","were","am","are"],correcta:0,explicacion:"Con I pasado de be: was."},
 {nivel:"Básico",pregunta:'"Maria walks to her office..." ¿Cómo va María a trabajar?',opciones:["By foot","On foot","By walking","With feet"],correcta:1,explicacion:"En inglés, a pie se dice on foot."},
-{nivel:"Básico",pregunta:'"The family travels to the beach..." ¿Cómo viaja la familia?',opciones:["On plane","In plane","By plane","With plane"],correcta:2,explicacion:"Usamos by + medio de transporte: by plane."}
-];
-</script>
-<script>
-var resto = [
+{nivel:"Básico",pregunta:'"The family travels to the beach..." ¿Cómo viaja la familia?',opciones:["On plane","In plane","By plane","With plane"],correcta:2,explicacion:"Usamos by + medio de transporte: by plane."},
 {nivel:"Básico",pregunta:'"John goes downtown..." ¿Cómo se transporta John?',opciones:["By car","In car","With car","By a car"],correcta:0,explicacion:"By car significa en automóvil."},
 {nivel:"Básico",pregunta:'"The students went on a field trip..." ¿Dónde estaban los estudiantes?',opciones:["By bus","On bus","In a bus","With a bus"],correcta:2,explicacion:"Estaban dentro del autobús: in a bus."},
 {nivel:"Básico",pregunta:'"The tourists crossed the river..." ¿Cómo cruzaron?',opciones:["Through boat","By boat","With boat","In the boat"],correcta:1,explicacion:"By boat: en barco."},
@@ -653,7 +649,9 @@ var resto = [
 {nivel:"Intermedio",pregunta:'"The employees always secure the main entrance sixty minutes before mid-day." ¿A qué hora?',opciones:["09:00 a. m.","11:00 a. m.","12:00 p. m.","10:00 a. m."],correcta:1,explicacion:"Mediodía (12:00) - 1 hora = 11:00 AM."},
 {nivel:"Intermedio",pregunta:'"My sister was born when the year reached its exact midpoint." ¿En qué mes?',opciones:["May","June","July","August"],correcta:2,explicacion:"El punto medio del año es julio."},
 {nivel:"Intermedio",pregunta:'"She likes to sit quietly under the trees... carries a book..." ¿Cuál es su pasatiempo?',opciones:["Exercising","Cooking","Shopping","Reading"],correcta:3,explicacion:"Ella está leyendo un libro."},
-{nivel:"Intermedio",pregunta:'"Every thermometer was breaking records as people crowded the ice cream shops." ¿Cómo está el clima?',opciones:["Cold","Far","Big","Hot"],correcta:3,explicacion:"Termómetros en récord y helados a tope: hace calor."},
+{nivel:"Intermedio",pregunta:'"Every thermometer was breaking records as people crowded the ice cream shops." ¿Cómo está el clima?',opciones:["Cold","Far","Big","Hot"],correcta:3,explicacion:"Termómetros en récord y helados a tope: hace calor."}
+];
+var resto = [
 {nivel:"Intermedio",pregunta:'"Many people were shopping and it was difficult to move..." ¿Cómo estaba la tienda?',opciones:["Empty","Quiet","Crowded","Small"],correcta:2,explicacion:"Estaba llena de gente, atestada."},
 {nivel:"Intermedio",pregunta:'"I am putting my salary into a savings account to explore the streets of Tokyo..." ¿Qué quiere hacer?',opciones:["Move to Japan","Travel to Japan","Work in Japan","Study in Japan"],correcta:1,explicacion:"Está ahorrando para viajar a Japón."},
 {nivel:"Intermedio",pregunta:'"There was ice on top of the pool..." ¿Cómo está el agua?',opciones:["The pool is dirty","The water is hot","The water is freezing","It is raining"],correcta:2,explicacion:"Hay hielo en la piscina: el agua está congelada."},
@@ -680,10 +678,26 @@ var resto = [
 {nivel:"Intermedio",pregunta:"Everyone in the room was wearing jackets and a cold breeze could be felt. ¿Cómo está el clima?",opciones:["It is warm","It is cold","It is humid","It is hot"],correcta:1,explicacion:"Chaquetas y viento frío indican que hace frío."},
 {nivel:"Intermedio",pregunta:"She is about to start writing a long essay but realizes she has nothing to write with. ¿Qué necesita?",opciones:["A backpack","A ruler","A pen","A calculator"],correcta:2,explicacion:"Para escribir necesita un bolígrafo."},
 {nivel:"Intermedio",pregunta:"The park is beautiful in the spring when the flowers bloom. ¿Cuándo es hermoso?",opciones:["In spring","In winter","In summer","In autumn"],correcta:0,explicacion:"Cuando las flores florecen es en primavera."},
-{nivel:"Intermedio",pregunta:"He spends his days planning structures and designing bridges. ¿Cuál es su profesión?",opciones:["Doctor","Teacher","Engineer","Architect"],correcta:2,explicacion:"Diseñar puentes y estructuras es labor de ingeniero."}
+{nivel:"Intermedio",pregunta:"He spends his days planning structures and designing bridges. ¿Cuál es su profesión?",opciones:["Doctor","Teacher","Engineer","Architect"],correcta:2,explicacion:"Diseñar puentes y estructuras es labor de ingeniero."},
+{nivel:"Intermedio",pregunta:"Before leaving for school, Sofia always checks the weather and carries an umbrella when rain is expected. ¿Por qué lleva paraguas?",opciones:["To protect herself from the rain","To carry books","To stay warm","To block the sun"],correcta:0,explicacion:"Lleva paraguas para protegerse de la lluvia."},
+{nivel:"Intermedio",pregunta:"¿Cuál es el opuesto de \"hot\"?",opciones:["Cold","Big","Old","Fast"],correcta:0,explicacion:"El opuesto de hot (caliente) es cold (frío)."},
+{nivel:"Intermedio",pregunta:'"The book talks about astronauts, rockets, and missions to other planets." ¿De qué trata?',opciones:["History","Space","Cooking","Animals"],correcta:1,explicacion:"El libro trata sobre el espacio."},
+{nivel:"Intermedio",pregunta:'"The departure is scheduled for 10:00 AM, we must be at the station a quarter to ten." ¿A qué hora?',opciones:["10:00 a. m.","09:30 a. m.","09:45 a. m.","09:55 a. m."],correcta:2,explicacion:"Quarter to ten = 9:45 AM."},
+{nivel:"Intermedio",pregunta:'"My dog has a coat that looks like chocolate or coffee beans." ¿De qué color es?',opciones:["Black","White","Grey","Brown"],correcta:3,explicacion:"Chocolate y café son marrones."},
+{nivel:"Intermedio",pregunta:'"He joins his local team every weekend, right after Friday night." ¿Cuándo juega?',opciones:["Every day","Every Sunday","Every Friday","Every Saturday"],correcta:3,explicacion:"Después del viernes es sábado."},
+{nivel:"Intermedio",pregunta:'"The indoor temperature dropped because the windows were left open." ¿Qué pasó?',opciones:["The temperature decreased","The lights went out","The furniture was moved","The garden was watered"],correcta:0,explicacion:"La temperatura interior bajó."},
+{nivel:"Intermedio",pregunta:"Carlos is going on a three-day trip. What object would be most useful?",opciones:["A pillow","A clock","A suitcase","A spoon"],correcta:2,explicacion:"Una maleta es lo más útil para un viaje."},
+{nivel:"Intermedio",pregunta:'"The park becomes beautiful during the third month of the year." ¿Cuándo?',opciones:["In summer","In winter","In spring","In autumn"],correcta:2,explicacion:"El tercer mes del año corresponde a la primavera."},
+{nivel:"Intermedio",pregunta:"He spent five years calculating structures; now he supervises highway overpasses. ¿Qué es?",opciones:["Engineer","Teacher","Doctor","Architect"],correcta:0,explicacion:"Calcula estructuras, es ingeniero."},
+{nivel:"Intermedio",pregunta:'"I extract the fresh liquid from citrus fruits for my morning meal." ¿Qué prepara?',opciones:["Apple juice","Orange juice","Milk","Coffee"],correcta:1,explicacion:"Jugo de naranja de frutas cítricas."},
+{nivel:"Intermedio",pregunta:"The sand was very hot, people couldn't walk without shoes. Opposite of hot?",opciones:["Cold","Big","Old","Fast"],correcta:0,explicacion:"Opuesto de hot es cold."},
+{nivel:"Intermedio",pregunta:'"I used this device to write documents, browse the internet, and send emails." ¿Qué usó?',opciones:["Phone","Computer","Tablet","Chair"],correcta:1,explicacion:"Una computadora para escribir documentos."},
+{nivel:"Intermedio",pregunta:"A farmer walked with his sheep and a loyal animal helped protect them. ¿Qué animal?",opciones:["Lion","Shark","Dog","Elephant"],correcta:2,explicacion:"El perro ayuda al granjero."},
+{nivel:"Intermedio",pregunta:'"She poured oat flakes into a bowl and added cold almond milk." ¿Qué desayunó?',opciones:["Toast","Cereal","Soup","Salad"],correcta:1,explicacion:"Hojuelas con leche = cereal."},
+{nivel:"Intermedio",pregunta:'"My parents celebrated their anniversary, the other son helped me organize." ¿Quién ayudó?',opciones:["Cousin","Grandson","Friend","Brother"],correcta:3,explicacion:"El otro hijo varón es su hermano."}
 ];
 preguntas = preguntas.concat(resto);
-</script>
+  </script>
 <script>
 var actual = 0;
 var filtroActual = "todas";
