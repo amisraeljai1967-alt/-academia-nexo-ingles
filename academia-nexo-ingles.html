@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -63,33 +62,28 @@
 
   <div class="quiz-container">
     <div id="quiz-box">
-      <h2 id="pregunta">Cargando preguntas...</h2>
+      <h2 id="pregunta">Cargando tus preguntas en inglés...</h2>
       <div id="opciones"></div>
       <div id="explicacion-box" class="explicacion"></div>
       <button id="btn-sig" class="btn-siguiente" onclick="siguientePregunta()">Siguiente Pregunta</button>
     </div>
   </div>
 
+  <!-- Aquí mandamos a llamar tu archivo de preguntas -->
+  <script src="preguntas.js"></script>
+
+  <!-- Código para que funcione el juego -->
   <script>
-    let preguntas = [];
     let indiceActual = 0;
 
-    // Aquí es donde el código va a buscar tu archivo de datos
-    // CAMBIA 'ingles.json' por el nombre real de tu archivo si es diferente
-    fetch('ingles.json')
-      .then(response => response.json())
-      .then(data => {
-        preguntas = data;
-        mostrarPregunta();
-      })
-      .catch(error => {
-        console.error('Error al cargar el JSON:', error);
-        document.getElementById('pregunta').innerText = 'Error al cargar las preguntas.';
-      });
+    // Arranca el juego si las preguntas existen en preguntas.js
+    if (typeof preguntas !== 'undefined' && preguntas.length > 0) {
+      mostrarPregunta();
+    } else {
+      document.getElementById('pregunta').innerText = 'No se encontraron las preguntas en preguntas.js';
+    }
 
     function mostrarPregunta() {
-      if (preguntas.length === 0) return;
-      
       let p = preguntas[indiceActual];
       document.getElementById('pregunta').innerText = p.pregunta;
       
@@ -111,17 +105,15 @@
     function verificarRespuesta(seleccionada, correcta, explicacion) {
       let botones = document.getElementsByClassName('btn-opcion');
       
-      // Bloquear botones para que no cambien de respuesta
       for (let i = 0; i < botones.length; i++) {
         botones[i].disabled = true;
         if (i === correcta) {
           botones[i].style.background = '#2e7d32'; // Verde si es correcta
         } else if (i === seleccionada) {
-          botones[i].style.background = '#c62828'; // Rojo si falló
+          botones[i].style.background = '#c62828'; // Rojo si fallaste
         }
       }
 
-      // Mostrar la retroalimentación
       let box = document.getElementById('explicacion-box');
       box.innerHTML = '<strong>Explicación:</strong> ' + explicacion;
       box.style.display = 'block';
@@ -134,7 +126,7 @@
       if (indiceActual < preguntas.length) {
         mostrarPregunta();
       } else {
-        document.getElementById('quiz-box').innerHTML = '<h2>¡Felicidades! Terminaste el quiz de prueba.</h2>';
+        document.getElementById('quiz-box').innerHTML = '<h2>¡Felicidades! Completaste el cuestionario de prueba.</h2>';
       }
     }
   </script>
