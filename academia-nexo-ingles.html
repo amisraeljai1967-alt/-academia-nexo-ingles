@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz de Inglés - Academia Nexo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0d1b2a;
+      color: #ffffff;
+      padding: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+    .quiz-container {
+      max-width: 600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .btn-opcion {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-size: 16px;
+    }
+    .btn-opcion:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .explicacion {
+      margin-top: 20px;
+      padding: 15px;
+      background: rgba(0, 229, 255, 0.1);
+      border-left: 5px solid #00e5ff;
+      border-radius: 4px;
+      display: none;
+    }
+    .btn-siguiente {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #00e5ff;
+      color: #0d1b2a;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
 
+  <div class="quiz-container">
+    <div id="quiz-box">
+      <h2 id="pregunta">Cargando preguntas...</h2>
+      <div id="opciones"></div>
+      <div id="explicacion-box" class="explicacion"></div>
+      <button id="btn-sig" class="btn-siguiente" onclick="siguientePregunta()">Siguiente Pregunta</button>
+    </div>
+  </div>
+
+  <script>
+    let preguntas = [];
+    let indiceActual = 0;
+
+    // Aquí es donde el código va a buscar tu archivo de datos
+    // CAMBIA 'ingles.json' por el nombre real de tu archivo si es diferente
+    fetch('ingles.json')
+      .then(response => response.json())
+      .then(data => {
+        preguntas = data;
+        mostrarPregunta();
+      })
+      .catch(error => {
+        console.error('Error al cargar el JSON:', error);
+        document.getElementById('pregunta').innerText = 'Error al cargar las preguntas.';
+      });
+
+    function mostrarPregunta() {
+      if (preguntas.length === 0) return;
+      
+      let p = preguntas[indiceActual];
+      document.getElementById('pregunta').innerText = p.pregunta;
+      
+      let opcionesDiv = document.getElementById('opciones');
+      opcionesDiv.innerHTML = '';
+      
+      document.getElementById('explicacion-box').style.display = 'none';
+      document.getElementById('btn-sig').style.display = 'none';
+
+      p.opciones.forEach((opcion, index) => {
+        let boton = document.createElement('button');
+        boton.className = 'btn-opcion';
+        boton.innerText = opcion;
+        boton.onclick = () => verificarRespuesta(index, p.correcta, p.explicacion);
+        opcionesDiv.appendChild(boton);
+      });
+    }
+
+    function verificarRespuesta(seleccionada, correcta, explicacion) {
+      let botones = document.getElementsByClassName('btn-opcion');
+      
+      // Bloquear botones para que no cambien de respuesta
+      for (let i = 0; i < botones.length; i++) {
+        botones[i].disabled = true;
+        if (i === correcta) {
+          botones[i].style.background = '#2e7d32'; // Verde si es correcta
+        } else if (i === seleccionada) {
+          botones[i].style.background = '#c62828'; // Rojo si falló
+        }
+      }
+
+      // Mostrar la retroalimentación
+      let box = document.getElementById('explicacion-box');
+      box.innerHTML = '<strong>Explicación:</strong> ' + explicacion;
+      box.style.display = 'block';
+      
+      document.getElementById('btn-sig').style.display = 'inline-block';
+    }
+
+    function siguientePregunta() {
+      indiceActual++;
+      if (indiceActual < preguntas.length) {
+        mostrarPregunta();
+      } else {
+        document.getElementById('quiz-box').innerHTML = '<h2>¡Felicidades! Terminaste el quiz de prueba.</h2>';
+      }
+    }
+  </script>
+
+</body>
+</html>
